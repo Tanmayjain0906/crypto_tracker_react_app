@@ -1,0 +1,169 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 3rem;
+    margin-top: 30px;
+}
+
+.left-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.head-1,
+.head-2 {
+    font-size: 9rem;
+}
+
+.head-2 {
+    color: var(--blue);
+}
+
+.head-1:hover {
+    color: var(--black);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--white);
+    transition: all 0.5s;
+}
+
+
+.head-2:hover {
+    color: var(--black);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--blue);
+    transition: all 0.5s;
+}
+
+.info {
+    color: var(--grey);
+}
+
+.button-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 17px;
+}
+
+.phone-container {
+    position: relative;
+    width: 50%;
+
+}
+
+.iphone {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    min-width: 350px;
+    z-index: 50;
+}
+
+.gradient {
+    position: absolute;
+    top: 10rem;
+    right: 0;
+    width: 40%;
+    min-width: 300px;
+    z-index: 40;
+}
+
+
+@media (max-width: 1940px) {
+
+    .head-1,
+    .head-2 {
+        font-size: 8rem;
+    }
+}
+
+@media (max-width: 1740px) {
+
+    .head-1,
+    .head-2 {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 1540px) {
+
+    .head-1,
+    .head-2 {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 1330px) {
+
+    .head-1,
+    .head-2 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 1040px) {
+
+    .head-1,
+    .head-2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 0;
+    }
+
+    .left-info
+    {
+        width: 100%;
+    }
+
+    .head-1,
+    .head-2 {
+        font-size: 3rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .head-1:hover {
+        -webkit-text-stroke-width: 1px;  
+    }
+
+
+    .head-2:hover {
+        -webkit-text-stroke-width: 1px; 
+    }
+
+    .button-container {
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .phone-container {
+        margin-top: 25px;
+        width: 100%;
+    }
+ 
+    .iphone {
+        position: absolute;
+        left: calc(50% - 175px); /* Half of 350px */
+        width: 350px;
+    }
+
+    .gradient {
+        position: absolute;
+        top: 5rem;
+        left: calc(50% - 150px); /* Half of 300px */
+        width: 300px;
+    }
+}

@@ -1,0 +1,198 @@
+tr
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+tr:hover
+{
+    background-color: var(--darkGrey);
+    transition: all 0.5s;
+    transform: scale(1.02);
+}
+
+tr td
+{
+    width: 18%;
+}
+
+.list-coin-logo img
+{
+    width: 3rem;
+}
+
+.list-coin-symbol
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.list-coin-name
+{
+    color: var(--grey);
+    font-size: 0.9rem;
+}
+
+.list-market-cap
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-green-cap
+{
+    color: var(--green);
+    border: 2px solid var(--green);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-green-cap:hover
+{
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.list-red-cap
+{
+    color: var(--red);
+    border: 2px solid var(--red);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-red-cap:hover
+{
+    background-color: var(--red);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.list-green-rise
+{
+    color: var(--green);
+    border: 2px solid var(--green);
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-green-rise:hover
+{
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+
+.list-red-rise
+{
+    color: var(--red);
+    border: 2px solid var(--red);
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-red-rise:hover
+{
+    background-color: var(--red);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.list-current-price
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-green-tag
+{
+    color: var(--green);
+}
+
+.list-red-tag
+{
+    color: var(--red);
+}
+
+
+.list-total-volume
+{
+    text-align: right;
+}
+
+.list-market-cap-value
+{
+    text-align: right;
+}
+
+.mobile-total-volume
+{
+    display: none;
+}
+
+.mobile-market-cap
+{
+    display: none;
+}
+
+@media (max-width: 1200px)
+{
+    .mobile-total-volume
+    {
+        display: block;
+    }
+
+    .desktop-total-volume
+    {
+        display: none;
+    }
+
+    .mobile-market-cap
+    {
+        display: block;
+    }
+
+    .dekstop-market-cap
+    {
+        display: none;
+    } 
+}
+
+
+@media (max-width: 1000px) {
+    .list-icon
+    {
+        display: none;
+    }
+
+    .list-total-volume
+    {
+        display: none;
+    }
+}
+

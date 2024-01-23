@@ -1,0 +1,162 @@
+.card
+{
+    width: 300px;
+    height: 300px;
+    background-color: var(--darkGrey);
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hover-green:hover
+{
+    border: 2px solid var(--green);
+    transition: all 0.3s;
+}
+
+.hover-red:hover
+{
+    border: 2px solid var(--red);
+    transition: all 0.3s;
+}
+
+
+.logo-div
+{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-div img
+{
+  width: 2.5rem;
+}
+
+.coin-info p
+{
+ margin: 0;
+}
+
+.symbol
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.name
+{
+    color: var(--grey);
+    font-size: 0.9rem;
+}
+
+.market-cap
+{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.green-cap
+{
+    color: var(--green);
+    border: 2px solid var(--green);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-cap::before
+{
+    content: "+";
+}
+
+.green-cap:hover
+{
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.red-cap
+{
+    color: var(--red);
+    border: 2px solid var(--red);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-cap:hover
+{
+    background-color: var(--red);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.green-rise
+{
+    color: var(--green);
+    border: 2px solid var(--green);
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-rise:hover
+{
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.red-rise
+{
+    color: var(--red);
+    border: 2px solid var(--red);
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-rise:hover
+{
+    background-color: var(--red);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.green-tag
+{
+    color: var(--green);
+}
+
+.red-tag
+{
+    color: var(--red);
+}
+
+.volumes
+{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--grey);
+}
+
