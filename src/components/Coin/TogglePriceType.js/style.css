@@ -42,7 +42,7 @@
     color: var(--white);
 }
 
-.active
+.active-btns
 {
     background-color: var(--blue) !important;
     color: var(--white) !important;
