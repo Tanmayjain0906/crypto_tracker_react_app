@@ -1,0 +1,49 @@
+.type-btn-container
+{
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.type-btn-container button
+{
+    min-width: 100px;
+    background-color: transparent;
+    color: var(--blue);
+    padding: 0.5rem 1rem;
+}
+
+#btn-1
+{
+    border-left: 2px solid var(--blue);
+    border-top: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    border-right: none;
+}
+
+#btn-2
+{
+    border-left: 2px solid var(--blue);
+    border-top: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    border-right: none;
+}
+
+#btn-3
+{
+    border: 2px solid var(--blue);
+}
+
+.type-btn-container button:hover
+{
+    transition: all 0.5s;
+    color: var(--white);
+}
+
+.active
+{
+    background-color: var(--blue) !important;
+    color: var(--white) !important;
+}
