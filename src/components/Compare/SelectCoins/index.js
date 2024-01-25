@@ -4,7 +4,7 @@ import Select from '@mui/material/Select';
 import "./style.css"
 import get100Coins from "../../../functions/get100coins";
 
-export default function SelectCoins({ crypto1, crypto2, handleCrypto1, handleCrypto2 }) {
+export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
     const [allCoins, setAllCoins] = useState([]);
     useEffect(() => {
         fetchCoins();
@@ -27,7 +27,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto1, handleCry
                     id="demo-simple-select"
                     value={crypto1}
                     label="Days"
-                    onChange={handleCrypto1}
+                    onChange={(e) => handleCrypto(e.target.value , true)}
                     sx={{
                         height: "2.5rem",
                         color: "var(--white)",
@@ -60,7 +60,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto1, handleCry
                     id="demo-simple-select"
                     value={crypto2}
                     label="Days"
-                    onChange={handleCrypto2}
+                    onChange={(e) => handleCrypto(e.target.value , false)}
                     sx={{
                         height: "2.5rem",
                         color: "var(--white)",

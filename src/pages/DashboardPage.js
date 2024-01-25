@@ -17,7 +17,6 @@ function DashboardPage() {
 
     //handle search globally passed as a prop to search component
     const searchChanged = (value) => {
-        console.log(value);
         setSearch(value);
     }
 
@@ -39,7 +38,6 @@ function DashboardPage() {
         setIsLoading(true);
 
         const coins = await get100coins();
-        console.log(coins);
 
         if (coins.length > 0) {
             setCoins(coins);
