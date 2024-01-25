@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import "./style.css"
 
-export default function BasicSelect({days, handleDaysChange}) {
+export default function BasicSelect({days, handleDaysChange, text}) {
 
     return (
         <div className='days-selected'>
-            <p>Price Changed in: </p>
+            {
+                text &&  <p>{text}</p>
+            }
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"

@@ -5,6 +5,7 @@ import axios from "axios";
 import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";
+import get100coins from "../functions/get100coins";
 
 function DashboardPage() {
 
@@ -36,17 +37,18 @@ function DashboardPage() {
 
     async function fetchData() {
         setIsLoading(true);
-        try {
-            const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en");
 
-            setCoins(response.data);
-            setPaginatedCoins(response.data.slice(0, 10));
-            setIsLoading(false);
+        const coins = await get100coins();
+        console.log(coins);
+
+        if (coins.length > 0) {
+            setCoins(coins);
+            setPaginatedCoins(coins.slice(0, 10));
         }
-        catch (err) {
-            alert(err.message);
-            setIsLoading(false);
-        }
+
+
+        setIsLoading(false);
+
     }
 
     if (isLoading) {

@@ -11,5 +11,6 @@ export default async function getCoinPrice(id, days, priceType)
   catch(err)
   {
     alert(err.message);
+    return [];
   }
 }

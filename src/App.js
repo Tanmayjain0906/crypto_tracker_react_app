@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
 import CoinPage from './pages/CoinPage'
 import BackToTop from './components/Common/BackToTop'
+import ComparePage from './pages/ComparePage'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
           <Route path='/coin/:id' element={<CoinPage />} />
+          <Route path='/compare' element={<ComparePage />} />
         </Routes>
       </BrowserRouter>
      <BackToTop />

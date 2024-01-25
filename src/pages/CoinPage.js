@@ -85,14 +85,14 @@ function CoinPage() {
 
       {
         coinData !== null && <div className='chart-data'>
-          <SelectDays days={days} handleDaysChange={handleDaysChange} />
+          <SelectDays days={days} handleDaysChange={handleDaysChange} text={"Price Changed In: "}/>
           <TogglePriceType priceType={priceType} handleChangePriceType={handleChangePriceType} />
           <LineChart chartData={chartData} priceType={priceType}/>
         </div>
       }
 
       {
-        coinData !== null && <CoinInfo heading={coinData.name} desc={coinData.desc} />
+        (coinData !== null && coinData.desc) && <CoinInfo heading={coinData.name} desc={coinData.desc} />
       }
 
     </div>
