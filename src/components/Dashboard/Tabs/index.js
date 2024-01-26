@@ -9,7 +9,8 @@ import "./style.css"
 import Grid from '../Grid';
 import List from '../List';
 
-export default function Tabs({ coins }) {
+export default function Tabs({ coins, page }) {
+  const themeValue = localStorage.getItem('theme');
   const [value, setValue] = React.useState('Grid');
 
   const handleChange = (event, newValue) => {
@@ -30,15 +31,15 @@ export default function Tabs({ coins }) {
       <TabContext value={value}>
 
         <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth">
-          <Tab label="Grid" value="Grid" sx={{ color: "white", fontWeight: "600", fontFamily: "'Inter', sans-serif" }} />
-          <Tab label="List" value="List" sx={{ color: "white", fontWeight: "600", fontFamily: "'Inter', sans-serif" }} />
+          <Tab label="Grid" value="Grid" sx={{ color: "var(--white)", fontWeight: "600", fontFamily: "'Inter', sans-serif" }} />
+          <Tab label="List" value="List" sx={{ color: "var(--white)", fontWeight: "600", fontFamily: "'Inter', sans-serif" }} />
         </TabList>
 
-        <TabPanel value="Grid">
+        <TabPanel value="Grid" >
           <div className='grid-container'>
             {
               coins.map((coin, i) => (
-                <Grid coin={coin} key={i} />
+                <Grid coin={coin} key={i} page={page}/>
               ))
             }
           </div>
@@ -48,7 +49,7 @@ export default function Tabs({ coins }) {
             <thead>
               {
                 coins.map((coin, i) => (
-                  <List coin={coin} key={i} />
+                  <List coin={coin} key={i} page={page}/>
                 ))
               }
             </thead>

@@ -95,3 +95,11 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
+
+.no-item-wishlist
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}

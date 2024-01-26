@@ -4,6 +4,7 @@ import DashboardPage from './pages/DashboardPage'
 import CoinPage from './pages/CoinPage'
 import BackToTop from './components/Common/BackToTop'
 import ComparePage from './pages/ComparePage'
+import Wishlist from './pages/WishlistPage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path='/dashboard' element={<DashboardPage />} />
           <Route path='/coin/:id' element={<CoinPage />} />
           <Route path='/compare' element={<ComparePage />} />
+          <Route path='/wishlist' element={<Wishlist />} />
         </Routes>
       </BrowserRouter>
      <BackToTop />

@@ -3,12 +3,14 @@ import "./style.css"
 import SwipeableTemporaryDrawer from './SwipeableTemporaryDrawer';
 import { NavLink } from 'react-router-dom';
 import Button from '../Button';
+import ToogleTheame from '../ToggleTheme';
 
 function Header() {
   return (
     <div className='navbar'>
       <h1>CryptoTracker<span style={{ color: "var(--blue)" }}>.</span></h1>
       <div className="links">
+        <ToogleTheame />
         <NavLink to='/'>
           <p className="link">Home</p>
         </NavLink>

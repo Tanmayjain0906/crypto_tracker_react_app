@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Tabs from "../components/Dashboard/Tabs";
 import Header from "../components/Common/Header";
 import axios from "axios";
@@ -6,6 +6,7 @@ import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";
 import get100coins from "../functions/get100coins";
+import all100CoinsContext from "../context/all100CoinsContext";
 
 function DashboardPage() {
 
@@ -14,6 +15,8 @@ function DashboardPage() {
     const [page, setPage] = useState(1);
     const [paginatedCoins, setPaginatedCoins] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const {setAll100Coins} = useContext(all100CoinsContext); // it is used to hold 100 coins because api creates problems
 
     //handle search globally passed as a prop to search component
     const searchChanged = (value) => {
@@ -38,6 +41,7 @@ function DashboardPage() {
         setIsLoading(true);
 
         const coins = await get100coins();
+        setAll100Coins(coins);
 
         if (coins.length > 0) {
             setCoins(coins);
@@ -64,7 +68,7 @@ function DashboardPage() {
             <Search search={search} searchChanged={searchChanged} />
             <div className="tabs">
                 {/* //if you want to search there is no need of pagination */}
-                <Tabs coins={search ? filterSearch : paginatedCoins} />
+                <Tabs coins={search ? filterSearch : paginatedCoins} page={page}/>
             </div>
 
             {/* //passing the props to access pages */}

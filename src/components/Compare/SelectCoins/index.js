@@ -1,20 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import "./style.css"
 import get100Coins from "../../../functions/get100coins";
+import all100CoinsContext from "../../../context/all100CoinsContext";
 
 export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
+    const theame = localStorage.getItem('theme');
+    console.log(theame);
     const [allCoins, setAllCoins] = useState([]);
+    const {all100Coins} = useContext(all100CoinsContext);
+    console.log(all100Coins);
     useEffect(() => {
+        console.log("selecting");
         fetchCoins();
     }, [])
 
     async function fetchCoins() {
-        const coins = await get100Coins();
-
-        if (coins.length > 0) {
-            setAllCoins(coins);
+        console.log(all100Coins);
+        if (all100Coins.length > 0) {
+            setAllCoins(all100Coins);
         }
     }
 
@@ -46,7 +51,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
                 >
                     {
                         allCoins.map((coin, i) => (
-                            <MenuItem value={coin.id} sx={{ color: "var(--black)", fontFamily: "Inter", fontWeight: "600" }} key={i}>{coin.name}</MenuItem>
+                            <MenuItem value={coin.id} sx={{ color: "#111", fontFamily: "Inter", fontWeight: "600" }} key={i}>{coin.name}</MenuItem>
                         ))
                     }
 
@@ -79,7 +84,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
                 >
                     {
                         allCoins.map((coin, i) => (
-                            <MenuItem value={coin.id} sx={{ color: "var(--black)", fontFamily: "Inter", fontWeight: "600" }} key={i}>{coin.name}</MenuItem>
+                            <MenuItem value={coin.id}sx={{ color: "#111", fontFamily: "Inter", fontWeight: "600" }} key={i}>{coin.name}</MenuItem>
                         ))
                     }
 

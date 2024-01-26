@@ -160,6 +160,13 @@ tr td
     display: none;
 }
 
+.wishlist-td
+{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
 @media (max-width: 1200px)
 {
     .mobile-total-volume

@@ -8,50 +8,45 @@ import getCoinInfo from '../functions/getCoinInfo';
 import coinObject from '../functions/coinObject';
 import List from '../components/Dashboard/List';
 import CoinInfo from '../components/Coin/CoinInfo';
-import { Co2Sharp } from '@mui/icons-material';
+import Loader from '../components/Common/Loader';
+import LineChart from '../components/Coin/LineChart';
+import TogglePriceType from '../components/Coin/TogglePriceType.js';
 
 function ComparePage() {
   const [crypto1, setCrypto1] = useState("bitcoin");
   const [crypto2, setCrypto2] = useState("ethereum");
-  // const [crypto1ChartData, setCrypto1ChartData] = useState({});
-  // const [crypto2ChartData, setCrypto2ChartData] = useState({});
+  const [chartData, setChartData] = useState(null);
   const [crypto1Info, setCrypt1Info] = useState(null);
   const [crypto2Info, setCrypt2Info] = useState(null);
   const [days, setDays] = useState(30);
   const [priceType, setPriceType] = useState("prices");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorOccur, setErrorOccur] = useState(false);
 
 
   async function handleCrypto(value, isCrypto1) {
-    
-    if(isCrypto1) {
+    setIsLoading(true);
+    if (isCrypto1) {
       const data = await getCoinInfo(value);
-      if(data)
-      {
+      if (data) {
         coinObject(setCrypt1Info, data);
         setCrypto1(value);
       }
-      const prices = await getCoinPrice(value, days, priceType);
-      if(prices.length > 0)
-      {
-        // settingChartData(setCrypto1ChartData, prices1);
-      }
-      
+      const price1 = await getCoinPrice(value, days, priceType);
+      const price2 = await getCoinPrice(crypto2, days, priceType);
+      settingChartData(setChartData, price1, price2, value, crypto2);
     }
-    else
-    {
+    else {
       const data = await getCoinInfo(value);
-      if(data)
-      {
+      if (data) {
         coinObject(setCrypt2Info, data);
         setCrypto2(value);
       }
-      const prices = await getCoinPrice(value, days, priceType);
-      if(prices.length > 0)
-      {
-        // settingChartData(setCrypto2ChartData, prices1);
-      }
-      
+      const price1 = await getCoinPrice(crypto1, days, priceType);
+      const price2 = await getCoinPrice(value, days, priceType);
+      settingChartData(setChartData, price1, price2, crypto1, value);
     }
+    setIsLoading(false);
   }
 
 
@@ -63,40 +58,45 @@ function ComparePage() {
   const handleDaysChange = async (event) => {
     const prices1 = await getCoinPrice(crypto1, Number(event.target.value), priceType);
     const prices2 = await getCoinPrice(crypto2, Number(event.target.value), priceType);
-    if (prices1.length > 0 && prices2.length > 0) {
-      // settingChartData(setCrypto1ChartData, prices1);
-      // settingChartData(setCrypto2ChartData, prices2);
-    }
+    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
     setDays(event.target.value);
   };
 
-  async function fetchCoinDetails() {
+  async function handleChangePriceType(value) {
+    const prices1 = await getCoinPrice(crypto1, days, value);
+    const prices2 = await getCoinPrice(crypto2, days, value);
+    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
+    setPriceType(value);
+  }
 
+  async function fetchCoinDetails() {
+    setIsLoading(true);
     const data1 = await getCoinInfo(crypto1);
     const data2 = await getCoinInfo(crypto2);
-
-    if(data1)
-    {
+    console.log(data1, data2);
+    if (data1) {
       coinObject(setCrypt1Info, data1);
     }
-    if(data2)
-    {
+    if (data2) {
       coinObject(setCrypt2Info, data2);
     }
 
     const prices1 = await getCoinPrice(crypto1, days, priceType);
     const prices2 = await getCoinPrice(crypto2, days, priceType);
 
-    if(prices1.length > 0)
-    {
-      // settingChartData(setCrypto1ChartData, prices1);
-    }
-    if(prices2.length > 0)
-    {
-      // settingChartData(setCrypto2ChartData, prices2);
-    }
+    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
+    setIsLoading(false);
   }
 
+  if (isLoading) {
+    return (
+      <div>
+        <Header />
+        <Loader />
+
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -114,11 +114,22 @@ function ComparePage() {
             crypto1Info !== null && <List coin={crypto1Info} />
           }
           {
-            crypto1Info !== null && <List coin={crypto2Info} />
+            crypto2Info !== null && <List coin={crypto2Info} />
           }
         </thead>
 
       </table>
+
+      {
+        <div className='chart-data'>
+          <TogglePriceType priceType={priceType} handleChangePriceType={handleChangePriceType} />
+
+          {
+            (chartData !== null && chartData !== undefined) && <LineChart chartData={chartData} priceType={priceType} multiAxis={true} />
+          }
+
+        </div>
+      }
 
       {
         crypto1Info !== null && <CoinInfo heading={crypto1Info.name} desc={crypto1Info.desc} />

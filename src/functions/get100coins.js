@@ -7,8 +7,8 @@ export default async function get100coins() {
 
         return response.data;
     }
-    catch(err)
-    {
+    catch (err) {
         alert(err.message);
+        return [];
     }
 }

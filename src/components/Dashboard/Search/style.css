@@ -17,7 +17,7 @@
 {
     width: 100%;
     font-size: 1.35rem;
-    background-color: var(--darkGrey);
+    background-color: transparent;
     border: none;
     padding: 0px 0.5rem;
     color: var(--grey);
