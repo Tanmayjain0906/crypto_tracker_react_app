@@ -3,6 +3,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { NavLink } from 'react-router-dom';
+import ToogleTheame from '../ToggleTheme';
 
 
 export default function SwipeableTemporaryDrawer() {
@@ -30,6 +31,7 @@ export default function SwipeableTemporaryDrawer() {
                     <NavLink to='/dashboard'>
                         <p className="link">Dashboard</p>
                     </NavLink>
+                    <ToogleTheame />
                 </div>
             </SwipeableDrawer>
 

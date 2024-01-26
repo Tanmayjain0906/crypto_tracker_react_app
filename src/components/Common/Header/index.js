@@ -21,7 +21,7 @@ function Header() {
           <p className="link">Wishlist</p>
         </NavLink>
         <NavLink to='/dashboard'>
-          <Button text="Dashboard" onclick={() => console.log("clicked")} />
+          <Button text={"Dashboard"} />
         </NavLink>
       </div>
 

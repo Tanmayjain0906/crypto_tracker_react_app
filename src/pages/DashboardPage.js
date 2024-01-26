@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Tabs from "../components/Dashboard/Tabs";
 import Header from "../components/Common/Header";
-import axios from "axios";
 import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";

@@ -3,9 +3,11 @@ import Button from "../../Common/Button"
 import iphone from "../../../assets/phone.svg"
 import gradient from "../../../assets/gradient.svg"
 import { motion } from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 import "./style.css"
 
 function MainComponent() {
+
     return (
         <div className='main-container'>
             <div className='left-info'>
@@ -29,7 +31,9 @@ function MainComponent() {
                 <motion.div className='button-container' initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}>
-                    <Button text={"Dashboard"} />
+                    <NavLink to="./dashboard">
+                        <Button text={"Dashboard"} />
+                    </NavLink>
                     <Button text={"Share"} outline={true} />
                 </motion.div>
 
