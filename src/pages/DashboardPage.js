@@ -6,7 +6,7 @@ import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";
 import get100coins from "../functions/get100coins";
 import all100CoinsContext from "../context/all100CoinsContext";
-
+import Footer from '../components/Common/Footer';
 
 function DashboardPage() {
 
@@ -16,7 +16,7 @@ function DashboardPage() {
     const [paginatedCoins, setPaginatedCoins] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const {setAll100Coins} = useContext(all100CoinsContext); // it is used to hold 100 coins because api creates problems
+    const { setAll100Coins } = useContext(all100CoinsContext); // it is used to hold 100 coins because api creates problems
 
     //handle search globally passed as a prop to search component
     const searchChanged = (value) => {
@@ -68,17 +68,19 @@ function DashboardPage() {
             <Search search={search} searchChanged={searchChanged} />
             <div className="tabs">
                 {/* //if you want to search there is no need of pagination */}
-                <Tabs coins={search ? filterSearch : paginatedCoins} page={page}/>
+                <Tabs coins={search ? filterSearch : paginatedCoins} page={page} />
             </div>
 
             {/* //passing the props to access pages */}
             {
-                !search && <PaginationComponent page={page} handlePageChange={handlePageChange} totalPages={10}/>
+                !search && <PaginationComponent page={page} handlePageChange={handlePageChange} totalPages={10} />
             }
 
             {
                 (search && filterSearch.length == 0) && <h1 className="no-item">No Item Found.</h1>
             }
+
+            <Footer />
         </div>
     )
 }

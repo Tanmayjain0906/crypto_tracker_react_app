@@ -104,6 +104,13 @@ body {
   height: 95vh;
 }
 
+.home-footer
+{
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+}
+
 @media (max-width: 550px) {
   
   .coin-handler
@@ -111,6 +118,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ;
   }
 }

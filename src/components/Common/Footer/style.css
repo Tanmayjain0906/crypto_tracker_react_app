@@ -1,0 +1,21 @@
+.footer-container {
+    background: linear-gradient(to right, #3a80e9, #3a80e9);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.social-media
+{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+

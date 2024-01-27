@@ -4,6 +4,7 @@ import Tabs from "../components/Dashboard/Tabs";
 import wishlistCoinContext from '../context/wishlistCoinContext';
 import Search from '../components/Dashboard/Search';
 import PaginationComponent from '../components/Dashboard/PaginationComponent';
+import Footer from '../components/Common/Footer';
 
 function WishlistPage() {
   const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
@@ -76,7 +77,7 @@ function WishlistPage() {
           <h1>No Item</h1>
         </div> : <div className="tabs">
           {
-            !enablePagination && <Tabs coins={filterSearch} page={1}/>
+            !enablePagination && <Tabs coins={filterSearch} page={1} />
           }
           {
             enablePagination && <Tabs coins={search ? filterSearch : paginatedCoins} page={page} />
@@ -91,6 +92,8 @@ function WishlistPage() {
       {
         (search && filterSearch.length == 0) && <h1 className="no-item">No Item Found.</h1>
       }
+
+
     </div>
   )
 }

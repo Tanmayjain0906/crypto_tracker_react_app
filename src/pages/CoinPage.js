@@ -12,6 +12,7 @@ import LineChart from '../components/Coin/LineChart';
 import settingChartData from '../functions/settingChartData';
 import SelectDays from '../components/Coin/SelectDays';
 import TogglePriceType from '../components/Coin/TogglePriceType.js';
+import Footer from '../components/Common/Footer/index.js';
 
 function CoinPage() {
   const { id } = useParams();
@@ -85,9 +86,9 @@ function CoinPage() {
 
       {
         coinData !== null && <div className='chart-data'>
-          <SelectDays days={days} handleDaysChange={handleDaysChange} text={"Price Changed In: "}/>
+          <SelectDays days={days} handleDaysChange={handleDaysChange} text={"Price Changed In: "} />
           <TogglePriceType priceType={priceType} handleChangePriceType={handleChangePriceType} />
-          <LineChart chartData={chartData} priceType={priceType}/>
+          <LineChart chartData={chartData} priceType={priceType} />
         </div>
       }
 
@@ -95,6 +96,7 @@ function CoinPage() {
         (coinData !== null && coinData.desc) && <CoinInfo heading={coinData.name} desc={coinData.desc} />
       }
 
+      <Footer />
     </div>
   )
 }

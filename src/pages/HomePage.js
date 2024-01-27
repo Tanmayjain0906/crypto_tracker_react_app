@@ -3,6 +3,7 @@ import Header from '../components/Common/Header'
 import MainComponent from '../components/landingPage/MainComponent'
 import all100CoinsContext from '../context/all100CoinsContext'
 import get100coins from '../functions/get100coins';
+import Footer from '../components/Common/Footer';
 
 function HomePage() {
 
@@ -21,6 +22,10 @@ function HomePage() {
         <div>
             <Header />
             <MainComponent />
+            <div className='home-footer'>
+            <Footer />
+            </div>
+            
         </div>
     )
 }

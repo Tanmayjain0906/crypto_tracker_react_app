@@ -12,6 +12,7 @@ import Loader from '../components/Common/Loader';
 import LineChart from '../components/Coin/LineChart';
 import TogglePriceType from '../components/Coin/TogglePriceType.js';
 import { motion } from 'framer-motion';
+import Footer from '../components/Common/Footer/index.js';
 
 function ComparePage() {
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -104,10 +105,10 @@ function ComparePage() {
       <Header />
 
       <motion.div className='coin-handler' initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1}}>
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}>
         <SelectCoins crypto1={crypto1} crypto2={crypto2} handleCrypto={handleCrypto} />
-        <SelectDays days={days} handleDaysChange={handleDaysChange}/>
+        <SelectDays days={days} handleDaysChange={handleDaysChange} />
       </motion.div>
 
 
@@ -141,6 +142,8 @@ function ComparePage() {
       {
         crypto2Info !== null && <CoinInfo heading={crypto2Info.name} desc={crypto2Info.desc} />
       }
+
+      <Footer />
     </div>
   )
 }
