@@ -26,8 +26,8 @@ function Grid({ coin, page }) {
         else {
             setIsInWishlist(false);
         }
-
-    }, [page])
+     console.log("enetr in grid");
+    }, [page, coin.id])
 
     const randomDelay = Math.random() * 1;
 
