@@ -6,7 +6,7 @@ import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";
 import get100coins from "../functions/get100coins";
 import all100CoinsContext from "../context/all100CoinsContext";
-import Footer from '../components/Common/Footer';
+
 
 function DashboardPage() {
 
@@ -80,7 +80,7 @@ function DashboardPage() {
                 (search && filterSearch.length == 0) && <h1 className="no-item">No Item Found.</h1>
             }
 
-            <Footer />
+           
         </div>
     )
 }

@@ -23,7 +23,7 @@ function ComparePage() {
   const [days, setDays] = useState(30);
   const [priceType, setPriceType] = useState("prices");
   const [isLoading, setIsLoading] = useState(false);
-  const [errorOccur, setErrorOccur] = useState(false);
+
 
 
   async function handleCrypto(value, isCrypto1) {
@@ -36,7 +36,11 @@ function ComparePage() {
       }
       const price1 = await getCoinPrice(value, days, priceType);
       const price2 = await getCoinPrice(crypto2, days, priceType);
-      settingChartData(setChartData, price1, price2, value, crypto2);
+
+      if (price1 && price2) {
+        settingChartData(setChartData, price1, price2, value, crypto2);
+      }
+
     }
     else {
       const data = await getCoinInfo(value);
@@ -46,7 +50,11 @@ function ComparePage() {
       }
       const price1 = await getCoinPrice(crypto1, days, priceType);
       const price2 = await getCoinPrice(value, days, priceType);
-      settingChartData(setChartData, price1, price2, crypto1, value);
+
+      if (price1 && price2) {
+        settingChartData(setChartData, price1, price2, crypto1, value);
+      }
+
     }
     setIsLoading(false);
   }

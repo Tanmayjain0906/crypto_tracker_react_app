@@ -22,9 +22,7 @@ function HomePage() {
         <div>
             <Header />
             <MainComponent />
-            <div className='home-footer'>
-            <Footer />
-            </div>
+            
             
         </div>
     )

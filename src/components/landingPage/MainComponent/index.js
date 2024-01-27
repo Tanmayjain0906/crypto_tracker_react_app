@@ -5,6 +5,7 @@ import gradient from "../../../assets/gradient.svg"
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import "./style.css"
+import ShareModal from '../ShareModal'
 
 function MainComponent() {
 
@@ -34,7 +35,7 @@ function MainComponent() {
                     <NavLink to="./dashboard">
                         <Button text={"Dashboard"} />
                     </NavLink>
-                    <Button text={"Share"} outline={true} />
+                    <ShareModal />
                 </motion.div>
 
 

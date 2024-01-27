@@ -189,6 +189,10 @@ tr td {
         font-size: 0.9rem;
     }
 
+    .list-red-tag {
+        font-size: 0.9rem;
+    }
+
     .mobile-market-cap {
         font-size: 0.9rem;
     }
@@ -216,6 +220,10 @@ tr td {
     }
 
     .list-green-tag {
+        font-size: 0.8rem;
+    }
+
+    .list-red-tag {
         font-size: 0.8rem;
     }
 
@@ -247,6 +255,11 @@ tr td {
         font-size: 0.7rem;
     }
 
+    .list-red-tag {
+        font-size: 0.7rem;
+    }
+
+
     .mobile-market-cap {
         font-size: 0.7rem;
     }
@@ -277,6 +290,10 @@ tr td {
     }
 
     .list-green-tag {
+        font-size: 0.5rem;
+    }
+
+    .list-red-tag {
         font-size: 0.5rem;
     }
 
