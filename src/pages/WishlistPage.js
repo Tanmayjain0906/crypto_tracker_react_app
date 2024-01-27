@@ -6,7 +6,7 @@ import Search from '../components/Dashboard/Search';
 import PaginationComponent from '../components/Dashboard/PaginationComponent';
 
 function WishlistPage() {
-  const { wishlistCoins } = useContext(wishlistCoinContext);
+  const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
   const [search, setSearch] = useState("");
   const [enablePagination, setEnablePagination] = useState(false);
   const [page, setPage] = useState(1);
@@ -36,28 +36,32 @@ function WishlistPage() {
   };
 
 
+
+
   useEffect(() => {
-    if (wishlistCoins.length > 10) {
-      setEnablePagination(true);
-      const pages = Math.ceil(wishlistCoins.length / 10);
-      setTotalPages(pages);
-      if (paginatedCoins.length == 0) {
-        setPaginatedCoins(wishlistCoins.slice(0, 10));
+    if (wishlistCoins !== null) {
+      if (wishlistCoins.length > 10) {
+        setEnablePagination(true);
+        const pages = Math.ceil(wishlistCoins.length / 10);
+        setTotalPages(pages);
+        if (paginatedCoins.length == 0) {
+          setPaginatedCoins(wishlistCoins.slice(0, 10));
+        }
+        else {
+          const startingIndex = (page - 1) * 10;
+          let lastIndex = ((page - 1) * 10) + 10;
+          if (lastIndex > wishlistCoins.length) {
+            lastIndex = wishlistCoins.length;
+          }
+          setPaginatedCoins(wishlistCoins.slice(startingIndex, lastIndex));
+        }
       }
       else {
-        const startingIndex = (page - 1) * 10;
-        let lastIndex = ((page - 1) * 10) + 10;
-        if (lastIndex > wishlistCoins.length) {
-          lastIndex = wishlistCoins.length;
-        }
-        setPaginatedCoins(wishlistCoins.slice(startingIndex, lastIndex));
+        setEnablePagination(false);
       }
     }
-    else
-    {
-      setEnablePagination(false);
-    }
-  }, [wishlistCoins.length]);
+
+  }, [wishlistCoins]);
 
   return (
     <div>
@@ -72,7 +76,7 @@ function WishlistPage() {
           <h1>No Item</h1>
         </div> : <div className="tabs">
           {
-            !enablePagination && <Tabs coins={filterSearch} />
+            !enablePagination && <Tabs coins={filterSearch} page={1}/>
           }
           {
             enablePagination && <Tabs coins={search ? filterSearch : paginatedCoins} page={page} />
