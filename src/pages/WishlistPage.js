@@ -12,12 +12,21 @@ function WishlistPage() {
   const searchChanged = (value) => {
     setSearch(value);
   }
-  const filterSearch = wishlistCoins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase().trim()) || coin.symbol.toLowerCase().includes(search.toLowerCase().trim()));
+
+  let filterSearch;
+
+  if (wishlistCoins !== null) {
+    filterSearch = wishlistCoins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase().trim()) || coin.symbol.toLowerCase().includes(search.toLowerCase().trim()));
+  }
 
   return (
     <div>
       <Header />
-      <Search search={search} searchChanged={searchChanged} />
+
+      {
+        (wishlistCoins !== null && wishlistCoins.length > 0 && wishlistCoins !== undefined) && <Search search={search} searchChanged={searchChanged} />
+      }
+
       {
         (wishlistCoins == null || wishlistCoins.length == 0 || wishlistCoins == undefined) ? <div className='no-item-wishlist'>
           <h1>No Item</h1>
