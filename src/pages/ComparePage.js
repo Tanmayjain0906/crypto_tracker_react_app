@@ -104,7 +104,7 @@ function ComparePage() {
 
       <div className='coin-handler'>
         <SelectCoins crypto1={crypto1} crypto2={crypto2} handleCrypto={handleCrypto} />
-        <SelectDays days={days} handleDaysChange={handleDaysChange} />
+        <SelectDays days={days} handleDaysChange={handleDaysChange}/>
       </div>
 
 

@@ -103,3 +103,14 @@ body {
   align-items: center;
   height: 95vh;
 }
+
+@media (max-width: 550px) {
+  
+  .coin-handler
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ;
+  }
+}

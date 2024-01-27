@@ -28,3 +28,11 @@ thead
     flex-direction: column;
     gap: 2rem;
 }
+
+@media (max-width: 800px) {
+
+    thead
+    {
+        width: 100%;
+    }
+}

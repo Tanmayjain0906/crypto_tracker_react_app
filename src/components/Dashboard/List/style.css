@@ -1,5 +1,4 @@
-tr
-{
+tr {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -9,46 +8,39 @@ tr
     cursor: pointer;
 }
 
-tr:hover
-{
+tr:hover {
     background-color: var(--darkGrey);
     transition: all 0.5s;
     transform: scale(1.02);
 }
 
-tr td
-{
+tr td {
     width: 18%;
 }
 
-.list-coin-logo img
-{
+.list-coin-logo img {
     width: 3rem;
 }
 
-.list-coin-symbol
-{
+.list-coin-symbol {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-.list-coin-name
-{
+.list-coin-name {
     color: var(--grey);
     font-size: 0.9rem;
 }
 
-.list-market-cap
-{
+.list-market-cap {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
 }
 
-.list-green-cap
-{
+.list-green-cap {
     color: var(--green);
     border: 2px solid var(--green);
     width: fit-content;
@@ -59,15 +51,13 @@ tr td
     align-items: center;
 }
 
-.list-green-cap:hover
-{
+.list-green-cap:hover {
     background-color: var(--green);
     color: var(--white);
     transition: all 0.5s;
 }
 
-.list-red-cap
-{
+.list-red-cap {
     color: var(--red);
     border: 2px solid var(--red);
     width: fit-content;
@@ -78,15 +68,13 @@ tr td
     align-items: center;
 }
 
-.list-red-cap:hover
-{
+.list-red-cap:hover {
     background-color: var(--red);
     color: var(--white);
     transition: all 0.5s;
 }
 
-.list-green-rise
-{
+.list-green-rise {
     color: var(--green);
     border: 2px solid var(--green);
     padding: 0.25rem;
@@ -96,16 +84,14 @@ tr td
     align-items: center;
 }
 
-.list-green-rise:hover
-{
+.list-green-rise:hover {
     background-color: var(--green);
     color: var(--white);
     transition: all 0.5s;
 }
 
 
-.list-red-rise
-{
+.list-red-rise {
     color: var(--red);
     border: 2px solid var(--red);
     padding: 0.25rem;
@@ -115,91 +101,196 @@ tr td
     align-items: center;
 }
 
-.list-red-rise:hover
-{
+.list-red-rise:hover {
     background-color: var(--red);
     color: var(--white);
     transition: all 0.5s;
 }
 
-.list-current-price
-{
+.list-current-price {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.list-green-tag
-{
+.list-green-tag {
     color: var(--green);
 }
 
-.list-red-tag
-{
+.list-red-tag {
     color: var(--red);
 }
 
 
-.list-total-volume
-{
+.list-total-volume {
     text-align: right;
 }
 
-.list-market-cap-value
-{
+.list-market-cap-value {
     text-align: right;
 }
 
-.mobile-total-volume
-{
+.mobile-total-volume {
     display: none;
 }
 
-.mobile-market-cap
-{
+.mobile-market-cap {
     display: none;
 }
 
-.wishlist-td
-{
+.wishlist-td {
     display: flex;
     justify-content: right;
     align-items: right;
 }
 
-@media (max-width: 1200px)
-{
-    .mobile-total-volume
-    {
+@media (max-width: 1200px) {
+    .mobile-total-volume {
         display: block;
     }
 
-    .desktop-total-volume
-    {
+    .desktop-total-volume {
         display: none;
     }
 
-    .mobile-market-cap
-    {
+    .mobile-market-cap {
         display: block;
     }
 
-    .dekstop-market-cap
-    {
+    .dekstop-market-cap {
         display: none;
-    } 
+    }
 }
 
 
 @media (max-width: 1000px) {
-    .list-icon
-    {
+    .list-icon {
         display: none;
     }
 
-    .list-total-volume
-    {
+    .list-total-volume {
         display: none;
+    }
+
+    .list-coin-logo img {
+        width: 2.5rem;
+    }
+
+    .list-coin-symbol {
+        font-size: 1rem;
+    }
+
+    .list-green-cap,
+    .list-red-cap {
+        font-size: 0.8rem;
+    }
+
+    .list-green-tag {
+        font-size: 0.9rem;
+    }
+
+    .mobile-market-cap {
+        font-size: 0.9rem;
+    }
+
+}
+
+@media (max-width: 800px) {
+    tr {
+        padding: 0.5rem 1rem;
     }
 }
 
+@media (max-width: 650px) {
+    .list-coin-logo img {
+        width: 2rem;
+    }
+
+    .list-coin-symbol {
+        font-size: 0.8rem;
+    }
+
+    .list-green-cap,
+    .list-red-cap {
+        font-size: 0.7rem;
+    }
+
+    .list-green-tag {
+        font-size: 0.8rem;
+    }
+
+    .mobile-market-cap {
+        font-size: 0.8rem;
+    }
+
+    .list-coin-name
+    {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .list-coin-logo img {
+        width: 1.5rem;
+    }
+
+    .list-coin-symbol {
+        font-size: 0.7rem;
+    }
+
+    .list-green-cap,
+    .list-red-cap {
+        font-size: 0.6rem;
+    }
+
+    .list-green-tag {
+        font-size: 0.7rem;
+    }
+
+    .mobile-market-cap {
+        font-size: 0.7rem;
+    }
+
+    .list-coin-name
+    {
+        font-size: 0.7rem;
+    }
+
+    td:nth-child(1)
+    {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 450px) {
+    .list-coin-logo img {
+        width: 1rem;
+    }
+
+    .list-coin-symbol {
+        font-size: 0.6rem;
+    }
+
+    .list-green-cap,
+    .list-red-cap {
+        font-size: 0.5rem;
+    }
+
+    .list-green-tag {
+        font-size: 0.5rem;
+    }
+
+    .mobile-market-cap {
+        font-size: 0.6rem;
+    }
+
+    .list-coin-name
+    {
+        font-size: 0.6rem;
+    }
+
+    td:nth-child(1)
+    {
+        width: fit-content;
+    }
+}

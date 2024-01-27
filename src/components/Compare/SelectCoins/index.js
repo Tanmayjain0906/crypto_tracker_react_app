@@ -26,7 +26,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
     return (
         <div className='crypto-coin'>
             <div className='crypto-1-container'>
-                <p>Crypto1</p>
+                <p className='tag'>Crypto1</p>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -59,7 +59,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto}) {
             </div>
 
             <div className='crypto-2-container'>
-                <p>Crypto2</p>
+                <p className='tag'>Crypto2</p>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

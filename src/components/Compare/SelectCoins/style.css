@@ -1,13 +1,18 @@
-.crypto-coin
-{
+.crypto-coin {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
 
-.crypto-1-container, .crypto-2-container
-{
+.crypto-1-container,
+.crypto-2-container {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+}
+
+@media (max-width: 550px) {
+    .tag {
+        display: none;
+    }
 }
