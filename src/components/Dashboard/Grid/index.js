@@ -7,9 +7,10 @@ import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import { useNavigate } from 'react-router-dom';
 import checkIsAvailable from '../../../functions/checkIsAvailable';
 import wishlistCoinContext from '../../../context/wishlistCoinContext';
+import { motion } from 'framer-motion';
 
 function Grid({ coin, page }) {
-    const {wishlistCoins, setWishlistCoins} = useContext(wishlistCoinContext);
+    const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
     const [isInWishlist, setIsInWishlist] = useState(false);
     const navigate = useNavigate();
 
@@ -23,8 +24,10 @@ function Grid({ coin, page }) {
         else {
             setIsInWishlist(false);
         }
+
     }, [page])
 
+    const randomDelay = Math.random() * 1;
 
     function handleWishlist() {
         const allWishListCoins = JSON.parse(localStorage.getItem('wishlist'));
@@ -52,7 +55,7 @@ function Grid({ coin, page }) {
 
     function removeItemFromWishlist(wishlistCoinId) {
         const allWishListCoins = JSON.parse(localStorage.getItem('wishlist'));
-    
+
         for (let i = 0; i < allWishListCoins.length; i++) {
             if (wishlistCoinId == allWishListCoins[i].id) {
                 allWishListCoins.splice(i, 1);
@@ -63,7 +66,9 @@ function Grid({ coin, page }) {
     }
 
     return (
-        <div className={`card ${coin.market_cap_change_percentage_24h > 0 ? "hover-green" : "hover-red"}`}>
+        <motion.div className={`card ${coin.market_cap_change_percentage_24h > 0 ? "hover-green" : "hover-red"}`} initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: randomDelay }}>
             <div className='coin-info-container'>
                 <div className='logo-div' onClick={() => navigate(`/coin/${coin.id}`)}>
                     <img src={coin.image} />
@@ -98,7 +103,7 @@ function Grid({ coin, page }) {
                 <p>Total Volume: ${coin.total_volume.toLocaleString()}</p>
                 <p>Market Cap: ${coin.market_cap.toLocaleString()}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

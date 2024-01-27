@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./style.css"
+import { motion } from 'framer-motion';
 
 function CoinInfo({ heading, desc }) {
 
@@ -9,14 +10,16 @@ function CoinInfo({ heading, desc }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='coin-information' onClick={() => setIsOpen(!isOpen)}>
+    <motion.div className='coin-information' onClick={() => setIsOpen(!isOpen)} initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1}}>
       <h2>{heading}</h2>
 
       {
         (desc.length > 300) ? <p dangerouslySetInnerHTML={{ __html: !isOpen ? shortDesc : largeDesc }} className='coin-description' /> : <p dangerouslySetInnerHTML={{ __html: desc }} className='coin-description' />
       }
-      
-    </div>
+
+    </motion.div>
   )
 }
 

@@ -8,6 +8,7 @@ import { ThemeProvider } from '@emotion/react';
 import "./style.css"
 import Grid from '../Grid';
 import List from '../List';
+import { motion } from 'framer-motion';
 
 export default function Tabs({ coins, page }) {
   const themeValue = localStorage.getItem('theme');
@@ -39,7 +40,7 @@ export default function Tabs({ coins, page }) {
           <div className='grid-container'>
             {
               coins.map((coin, i) => (
-                <Grid coin={coin} key={i} page={page}/>
+              <Grid coin={coin} key={i} page={page}/>
               ))
             }
           </div>

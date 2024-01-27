@@ -7,6 +7,7 @@ import Loader from "../components/Common/Loader";
 import get100coins from "../functions/get100coins";
 import all100CoinsContext from "../context/all100CoinsContext";
 
+
 function DashboardPage() {
 
     const [coins, setCoins] = useState([]);

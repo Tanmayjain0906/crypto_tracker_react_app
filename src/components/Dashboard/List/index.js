@@ -9,9 +9,10 @@ import checkIsAvailable from '../../../functions/checkIsAvailable';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import wishlistCoinContext from '../../../context/wishlistCoinContext';
+import { motion } from 'framer-motion';
 
 function List({ coin, page }) {
-    const {wishlistCoins, setWishlistCoins} = useContext(wishlistCoinContext);
+    const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
     const [isInWishlist, setIsInWishlist] = useState(false);
     const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ function List({ coin, page }) {
         }
     }, [page])
 
+    const randomDelay = Math.random() * 1;
 
     function handleWishlist() {
         const allWishListCoins = JSON.parse(localStorage.getItem('wishlist'));
@@ -54,7 +56,7 @@ function List({ coin, page }) {
 
     function removeItemFromWishlist(wishlistCoinId) {
         const allWishListCoins = JSON.parse(localStorage.getItem('wishlist'));
-    
+
         for (let i = 0; i < allWishListCoins.length; i++) {
             if (wishlistCoinId == allWishListCoins[i].id) {
                 allWishListCoins.splice(i, 1);
@@ -65,7 +67,9 @@ function List({ coin, page }) {
     }
 
     return (
-        <tr>
+        <motion.tr initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: randomDelay }}>
             <Tooltip title="Logo" placement='bottom-start'>
                 <td className='list-coin-logo'>
                     <img src={coin.image} />
@@ -129,7 +133,7 @@ function List({ coin, page }) {
                     }
                 </div>
             </td>
-        </tr>
+        </motion.tr>
     )
 }
 
