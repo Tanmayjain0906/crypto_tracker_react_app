@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import checkIsAvailable from '../../../functions/checkIsAvailable';
 import wishlistCoinContext from '../../../context/wishlistCoinContext';
 import { motion } from 'framer-motion';
+import Tooltip from '@mui/material/Tooltip';
+import { toast } from 'react-toastify';
 
 function Grid({ coin, page }) {
     const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
@@ -38,17 +40,20 @@ function Grid({ coin, page }) {
             localStorage.setItem('wishlist', JSON.stringify(newArr));
             setWishlistCoins(newArr);
             setIsInWishlist(true);
+            toast.success(`${coin.name} Added to wishlist`);
         }
         else {
             if (checkIsAvailable(coin.id)) {
                 removeItemFromWishlist(coin.id);
                 setIsInWishlist(false);
+                toast.success(`${coin.name} Removed from wishlist`);
             }
             else {
                 allWishListCoins.push(coin);
                 localStorage.setItem('wishlist', JSON.stringify(allWishListCoins));
                 setWishlistCoins(allWishListCoins);
                 setIsInWishlist(true);
+                toast.success(`${coin.name} Added to wishlist`);
             }
         }
     }
@@ -79,7 +84,7 @@ function Grid({ coin, page }) {
                 </div>
                 <div className={coin.market_cap_change_percentage_24h > 0 ? "green-tag" : "red-tag"} onClick={handleWishlist}>
                     {
-                        isInWishlist ? <StarOutlinedIcon sx={{ transform: "scale(1.5)" }} /> : <StarBorderOutlinedIcon sx={{ transform: "scale(1.5)" }} />
+                        isInWishlist ? <Tooltip title="Remove From Wishlist" placement='bottom'><StarOutlinedIcon sx={{ transform: "scale(1.5)" }} /></Tooltip> : <Tooltip title="Add To Wishlist" placement='bottom'><StarBorderOutlinedIcon sx={{ transform: "scale(1.5)" }} /></Tooltip>
                     }
                 </div>
 

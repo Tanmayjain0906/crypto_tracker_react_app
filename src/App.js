@@ -5,12 +5,15 @@ import CoinPage from './pages/CoinPage'
 import BackToTop from './components/Common/BackToTop'
 import ComparePage from './pages/ComparePage'
 import Wishlist from './pages/WishlistPage'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   return (
     <div>
       <BrowserRouter>
+      <ToastContainer />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/dashboard' element={<DashboardPage />} />

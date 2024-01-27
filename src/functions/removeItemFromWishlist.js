@@ -7,8 +7,7 @@ export default function removeItemFromWishlist(wishlistCoinId) {
     for (let i = 0; i < allWishListCoins.length; i++) {
         if (wishlistCoinId == allWishListCoins[i].id) {
             allWishListCoins.splice(i, 1);
-            localStorage.setItem('wishlist', JSON.stringify(allWishListCoins));
-           
+            localStorage.setItem('wishlist', JSON.stringify(allWishListCoins));   
         }
     }
 }

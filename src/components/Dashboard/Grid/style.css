@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
 }
 
 .hover-green:hover
@@ -30,6 +29,7 @@
     gap: 15px;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 .logo-div img
@@ -47,12 +47,14 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .name
 {
     color: var(--grey);
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .market-cap
@@ -61,6 +63,7 @@
     gap: 15px;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 .green-cap
@@ -73,11 +76,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .green-cap::before
 {
     content: "+";
+    cursor: pointer;
 }
 
 .green-cap:hover
@@ -97,6 +102,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .red-cap:hover
@@ -115,6 +121,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .green-rise:hover
@@ -133,6 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .red-rise:hover
@@ -145,11 +153,14 @@
 .green-tag
 {
     color: var(--green);
+    cursor: pointer;
 }
 
 .red-tag
 {
     color: var(--red);
+    cursor: pointer;
+    
 }
 
 .volumes
@@ -158,6 +169,8 @@
     flex-direction: column;
     gap: 12px;
     color: var(--grey);
+    cursor: pointer;
+    
 }
 
 .coin-info-container
@@ -165,5 +178,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     
 }

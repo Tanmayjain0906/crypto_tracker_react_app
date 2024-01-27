@@ -10,6 +10,7 @@ import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import wishlistCoinContext from '../../../context/wishlistCoinContext';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 function List({ coin, page }) {
     const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
@@ -39,17 +40,20 @@ function List({ coin, page }) {
             localStorage.setItem('wishlist', JSON.stringify(newArr));
             setWishlistCoins(newArr);
             setIsInWishlist(true);
+            toast.success(`${coin.name} Added to wishlist`);
         }
         else {
             if (checkIsAvailable(coin.id)) {
                 removeItemFromWishlist(coin.id);
                 setIsInWishlist(false);
+                toast.success(`${coin.name} Removed from wishlist`);
             }
             else {
                 allWishListCoins.push(coin);
                 localStorage.setItem('wishlist', JSON.stringify(allWishListCoins));
                 setWishlistCoins(allWishListCoins);
                 setIsInWishlist(true);
+                toast.success(`${coin.name} Added to wishlist`);
             }
         }
     }

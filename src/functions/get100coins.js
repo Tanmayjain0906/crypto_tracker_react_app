@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 export default async function get100coins() {
 
@@ -8,7 +9,7 @@ export default async function get100coins() {
         return response.data;
     }
     catch (err) {
-        alert(err.message);
+        toast.error("CoinGecko Api Problem, Try After Sometime!");
         return [];
     }
 }

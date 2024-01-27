@@ -73,7 +73,7 @@ function DashboardPage() {
 
             {/* //passing the props to access pages */}
             {
-                !search && <PaginationComponent page={page} handlePageChange={handlePageChange} />
+                !search && <PaginationComponent page={page} handlePageChange={handlePageChange} totalPages={10}/>
             }
 
             {
