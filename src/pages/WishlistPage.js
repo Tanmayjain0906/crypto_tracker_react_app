@@ -4,7 +4,8 @@ import Tabs from "../components/Dashboard/Tabs";
 import wishlistCoinContext from '../context/wishlistCoinContext';
 import Search from '../components/Dashboard/Search';
 import PaginationComponent from '../components/Dashboard/PaginationComponent';
-import Footer from '../components/Common/Footer';
+import get100coins from '../functions/get100coins';
+
 
 function WishlistPage() {
   const { wishlistCoins, setWishlistCoins } = useContext(wishlistCoinContext);
@@ -13,6 +14,7 @@ function WishlistPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
+
 
   //handle search globally passed as a prop to search component
   const searchChanged = (value) => {
@@ -37,7 +39,9 @@ function WishlistPage() {
   };
 
 
-
+  useEffect(() => {
+    updateWishliset();
+  })
 
   useEffect(() => {
     if (wishlistCoins !== null) {
@@ -63,6 +67,25 @@ function WishlistPage() {
     }
 
   }, [wishlistCoins]);
+
+  async function updateWishliset() {
+    if (wishlistCoins !== null) {
+      const wishlistArr = [];
+      const coins = await get100coins();
+      if (coins.length > 0) {
+        for (let i = 0; i < wishlistCoins.length; i++) {
+          for (let j = 0; j < coins.length; j++) {
+            if (wishlistCoins[i].id == coins[j].id) {
+              wishlistArr.push(coins[j]);
+              break;
+            }
+          }
+        }
+        localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
+        setWishlistCoins(wishlistArr);
+      }
+    }
+  }
 
   return (
     <div>

@@ -5,7 +5,7 @@ import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/Common/Loader";
 import get100coins from "../functions/get100coins";
-import all100CoinsContext from "../context/all100CoinsContext";
+
 
 
 function DashboardPage() {
@@ -15,8 +15,6 @@ function DashboardPage() {
     const [page, setPage] = useState(1);
     const [paginatedCoins, setPaginatedCoins] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
-    const { setAll100Coins } = useContext(all100CoinsContext); // it is used to hold 100 coins because api creates problems
 
     //handle search globally passed as a prop to search component
     const searchChanged = (value) => {
@@ -41,16 +39,13 @@ function DashboardPage() {
         setIsLoading(true);
 
         const coins = await get100coins();
-        setAll100Coins(coins);
-
         if (coins.length > 0) {
             setCoins(coins);
             setPaginatedCoins(coins.slice(0, 10));
+            setIsLoading(false);
         }
 
-
-        setIsLoading(false);
-
+        
     }
 
     if (isLoading) {

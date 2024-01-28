@@ -1,29 +1,26 @@
-import React, { useContext, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import Header from '../components/Common/Header'
 import MainComponent from '../components/landingPage/MainComponent'
-import all100CoinsContext from '../context/all100CoinsContext'
 import get100coins from '../functions/get100coins';
-import Footer from '../components/Common/Footer';
 
 function HomePage() {
-
-    const {setAll100Coins} = useContext(all100CoinsContext);
-
+    
     useEffect(() => {
-        fetchCoin();
+         fetchData();
     }, [])
 
-    async function fetchCoin(){
-        const coins = await get100coins();
-        setAll100Coins(coins);
-    }
 
+    async function fetchData() {
+        const coins = await get100coins();
+        if (coins.length > 0) {
+            sessionStorage.setItem("all100Coins", JSON.stringify(coins));
+        }
+    }
+   
     return (
         <div>
             <Header />
-            <MainComponent />
-            
-            
+            <MainComponent />      
         </div>
     )
 }

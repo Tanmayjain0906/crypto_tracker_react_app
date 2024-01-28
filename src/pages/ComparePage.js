@@ -61,7 +61,6 @@ function ComparePage() {
 
 
   useEffect(() => {
-    console.log("reload");
     fetchCoinDetails();
   }, [])
 
@@ -95,7 +94,10 @@ function ComparePage() {
     const prices2 = await getCoinPrice(crypto2, days, priceType);
 
     settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
-    setIsLoading(false);
+
+    if (prices1 !== undefined || prices2 !== undefined) {
+      setIsLoading(false);
+    }
   }
 
   if (isLoading) {
