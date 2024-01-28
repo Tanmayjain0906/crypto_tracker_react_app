@@ -16,7 +16,7 @@ export default function SelectCoins({ crypto1, crypto2, handleCrypto }) {
 
     async function fetchCoins() {
         const coins = JSON.parse(sessionStorage.getItem("all100Coins"));
-        if (coins.length > 0) {
+        if (coins !== null) {
             setAllCoins(coins);
         }
     }
